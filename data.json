@@ -5,7 +5,7 @@
         "Whatsapp":"8am-11pm",
         "Basic":"Unlimited",
         "Private": "With dedicated Pediatrician",
-        "Video" : "6 free consultations (Pediatrician/ Gynaecologist/ Nutritionists/ Lactation)",
+        "Video" : "6 free consultations <br>(Pediatrician/ Gynaecologist/ Nutritionists/ Lactation)",
         "Additional" :"20% Discount",
         "Growth": "Monthly",
         "Price":"Rs. 1999 for 6 months"
@@ -18,7 +18,7 @@
         "Private": "NA",
         "Video" : "2 free consultations (Pediatrician Only)",
         "Additional" :"20% Discount",
-        "Growth": "Not Included",
+        "Growth": "Not Included <br><br>",
         "Price":"Rs. 1248 for 1 year"
     },{
         "id":"3",
@@ -28,7 +28,7 @@
         "Private": "NA",
         "Video" : "No free consultations",
         "Additional" :"20% Discount",
-        "Growth": "Not Included",
+        "Growth": "Not Included <br><br><br>",
         "Price":"Rs. 748 for 1 year"
     }
 ]

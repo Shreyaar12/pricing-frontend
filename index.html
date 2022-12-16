@@ -4,22 +4,113 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing</title>
+    <title>Pricing</title>  
+    <!--  Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
+  
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Tables CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Bootstrap
+        </a>
+      </nav>
     <div class ="container"> This is my container</div>
+
+
+ 
+  <!-- BEGIN TABLE STYLE  -->
+  <section class="section section-grad">
+    <div class="container">
+      <h1>Choosing Pricing Plan</h1>
+      <div class="row">
+        <div id="main1">
+        
+        </div>
+        
+  </section>
+  <!-- END TABLE STYLE 3 -->
+
+
+</body>
+
+</html>
     <p id="data"></p>
     <script>
         fetch('./data.json')
         .then(function (response) {
             return response.json();
         })
-        .then(function(data){
-            for(var i=0;i<data.length;i++){
-                document.getElementById("data").innerHTML+= 
-                data[i].name +"<br> />"+data[i].Whatsapp + " " + data[i].Basic+ data[i].Private+  data[i].Video+ data[i].Additional+  data[i].Growth+ data[i].Price +"<br> />";
+        .then(function(products){
+            let placeholder= document.querySelector('#main1');
+            let out="";
+            for (let product of products){
+                out+=`
+                <div class="col-md-4">
+          <!-- BEGIN TABLE -->
+          <div class="table-default table3">
+            <!-- BEGIN TABLE HEADER -->
+            <div class="table__header">
+              <img class="table__header--icon" src="https://image.ibb.co/gPbfdG/table3_basic.png" alt="Basic Icon">
+              <h2 class="table__header--title">${product.name}</h2>
+            </div>
+            <!-- END TABLE HEADER -->
+            <div class="table__content">
+              <!-- BEGIN TABLE LIST -->
+              <ul id= "data" class="table__content--list">
+                <li><span id="headertext">Whatsapp Group:</span> ${product.Whatsapp}</li>
+                <li><span id="headertext">Basic Medical Queries:</span> ${product.Basic}</li>
+                <li><span id="headertext">Private Chat:</span> ${product.Private}</li>
+                <li><span id="headertext"> Video Consultation:</span> ${product.Video}</li>
+                <li><span id="headertext">Additional Consultations:</span> ${product.Additional}</li>
+                <li><span id="headertext">Growth tracking for baby:</span> ${product.Growth}</li>
+              </ul>
+              <!-- END TABLE LIST -->
+            </div>
+            <!-- BEGIN TABLE FOOTER -->
+            <div class="table__footer">
+              <p data-price="${product.Price}" class="table__header--price">
+                ${product.Price}
+             
+              </p>
+              <a href="#" class="button">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+            <!-- END TABLE FOOTER -->
+          </div>
+          <!-- END TABLE -->
+        </div>
+        
+               
+     
+              
+                `;
             }
-        })
+            placeholder.innerHTML=out;
+            // for(var i=0;i<data.length;i++){
+            //     document.getElementById("data").innerHTML+= 
+                
+            //     "<li>"+ data[i].name +
+            //         "<li>"+data[i].Whatsapp +
+            //              "<li>" + data[i].Basic+
+            //                  "<li>" + data[i].Private+ 
+            //                     "<li>" + data[i].Video+
+            //                          "<li>" +data[i].Additional+
+            //                              "<li>" + data[i].Growth+ 
+            //                                 "<li>" + data[i].Price +
+            //                                     "<br>";
+            }
+        )
         .catch(function (err){
             console.log(err);
         } );
